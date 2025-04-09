@@ -10,28 +10,31 @@ class SmallButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 174,
-      height: 37,
-      decoration: BoxDecoration(
-        color: ColorStyle.primary100,
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBox(
-            width: 114,
-            child: Center(
-              child: Text(
-                text,
-                style: AppTextStyles.smallBold.copyWith(
-                  color: ColorStyle.white,
+    return GestureDetector(
+      onTap: onClick,
+      child: Container(
+        width: 174,
+        height: 37,
+        decoration: BoxDecoration(
+          color: ColorStyle.primary100,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 114,
+              child: Center(
+                child: Text(
+                  text,
+                  style: AppTextStyles.smallBold.copyWith(
+                    color: ColorStyle.white,
+                  ),
                 ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
