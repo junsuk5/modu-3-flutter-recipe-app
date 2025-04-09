@@ -13,7 +13,6 @@ class SmallButton extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Container(
-        width: 174,
         height: 37,
         decoration: BoxDecoration(
           color: ColorStyle.primary100,

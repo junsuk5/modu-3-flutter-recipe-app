@@ -13,7 +13,6 @@ class MediumButton extends StatelessWidget {
     return GestureDetector(
       onTap: onClick,
       child: Container(
-        width: 243,
         height: 54,
         decoration: BoxDecoration(
           color: ColorStyle.primary100,
