@@ -18,6 +18,7 @@ class MultiTabs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      spacing: 8,
       children:
           labels.map((label) {
             final int labelIndex = labels.indexOf(label);
