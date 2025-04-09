@@ -25,6 +25,7 @@ class InputField extends StatelessWidget {
         Text(label, style: AppTextStyles.smallRegular),
         const SizedBox(height: 4),
         TextField(
+          controller: TextEditingController(text: value),
           onChanged: (value) {
             onValueChange(value);
           },
