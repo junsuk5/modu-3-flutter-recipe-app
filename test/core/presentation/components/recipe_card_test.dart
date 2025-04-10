@@ -24,5 +24,27 @@ void main() {
 
       expect(find.textContaining(recipe.chef), findsOneWidget);
     });
+    testWidgets('북마크 버튼을 누르면 카운트가 증가 되어야 한다.', (tester) async {
+      int count = 0;
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: RecipeCard(
+              recipe: recipe,
+              onBookmarkClick: () {
+                count++;
+              },
+            ),
+          ),
+        ),
+      );
+
+      final Finder findBookmarkButton = find.byType(CircleAvatar);
+
+      await tester.tap(findBookmarkButton);
+
+      expect(count, 1);
+    });
   });
 }
