@@ -23,6 +23,9 @@ void main() {
       );
 
       expect(find.textContaining(recipe.chef), findsOneWidget);
+      expect(find.textContaining(recipe.foodName), findsOneWidget);
+      expect(find.textContaining(recipe.time.toString()), findsOneWidget);
+      expect(find.textContaining(recipe.rate.toString()), findsOneWidget);
     });
     testWidgets('북마크 버튼을 누르면 카운트가 증가 되어야 한다.', (tester) async {
       int count = 0;
