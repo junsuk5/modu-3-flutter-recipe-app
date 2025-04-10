@@ -5,8 +5,14 @@ import 'package:recipe_app/ui/text_styles.dart';
 class SmallButton extends StatefulWidget {
   final String text;
   final VoidCallback onClick;
+  final Color color;
 
-  const SmallButton({super.key, required this.text, required this.onClick});
+  const SmallButton({
+    super.key,
+    required this.text,
+    required this.onClick,
+    this.color = ColorStyle.primary100,
+  });
 
   @override
   State<SmallButton> createState() => _SmallButtonState();
@@ -37,7 +43,7 @@ class _SmallButtonState extends State<SmallButton> {
       child: Container(
         height: 37,
         decoration: BoxDecoration(
-          color: isPressed ? ColorStyle.gray4 : ColorStyle.primary100,
+          color: isPressed ? ColorStyle.gray4 : widget.color,
           borderRadius: BorderRadius.circular(10),
         ),
         child: Row(
