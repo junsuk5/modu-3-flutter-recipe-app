@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/presentation/components/big_button.dart';
+import 'package:recipe_app/core/presentation/components/ingredient_item.dart';
 import 'package:recipe_app/core/presentation/components/input_field.dart';
 import 'package:recipe_app/core/presentation/components/medium_button.dart';
 import 'package:recipe_app/core/presentation/components/multi_tabs.dart';
@@ -20,14 +21,12 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
     return Scaffold(
       body: Center(
         child: Column(
+          spacing: 10,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BigButton(text: 'Big', onClick: () {}),
-            const SizedBox(height: 10),
             MediumButton(text: 'medium', onClick: () {}),
-            const SizedBox(height: 10),
             SmallButton(text: 'small', onClick: () {}),
-            const SizedBox(height: 10),
             InputField(
               label: 'Label',
               value: 'value',
@@ -36,7 +35,6 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                 print(value);
               },
             ),
-            const SizedBox(height: 10),
             MultiTabs(
               labels: ['Label1', 'Label2'],
               selectedIndex: tabSelectedValue,
@@ -45,6 +43,11 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                   tabSelectedValue = value;
                 });
               },
+            ),
+            IngredientItem(
+              ingredientName: 'Tomaots',
+              imageName: 'assets/images/tomato.png',
+              amount: '500g',
             ),
           ],
         ),
