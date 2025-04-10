@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recipe_app/core/presentation/components/big_button.dart';
+import 'package:recipe_app/core/presentation/components/filter_button.dart';
 import 'package:recipe_app/core/presentation/components/ingredient_item.dart';
 import 'package:recipe_app/core/presentation/components/input_field.dart';
 import 'package:recipe_app/core/presentation/components/medium_button.dart';
@@ -19,6 +20,7 @@ class ComponentTestScreen extends StatefulWidget {
 class _ComponentTestScreenState extends State<ComponentTestScreen> {
   int tabSelectedValue = 0;
   bool isRatingSelected = false;
+  bool isFilterSelected = false;
   final Recipe recipe = Recipe(
     foodName: 'Traditional spare ribs baked',
     chef: 'Chef John',
@@ -70,6 +72,17 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                     });
                   },
                   child: RatingButton(text: '5', isSelected: isRatingSelected),
+                ),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isFilterSelected = !isFilterSelected;
+                    });
+                  },
+                  child: FilterButton(
+                    text: 'Text',
+                    isSelected: isFilterSelected,
+                  ),
                 ),
               ],
             ),
