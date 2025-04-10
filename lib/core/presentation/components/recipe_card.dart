@@ -114,7 +114,7 @@ class RecipeCard extends StatelessWidget {
                 ),
                 const SizedBox(width: 10.0),
                 GestureDetector(
-                  onTap: onClick,
+                  onTap: onBookmarkClick,
                   child: SizedBox(
                     width: 24,
                     child: CircleAvatar(

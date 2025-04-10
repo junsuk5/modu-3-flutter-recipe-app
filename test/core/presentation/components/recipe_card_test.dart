@@ -16,7 +16,9 @@ void main() {
     testWidgets('제대로 생성되어야 한다.', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(body: RecipeCard(recipe: recipe, onClick: () {})),
+          home: Scaffold(
+            body: RecipeCard(recipe: recipe, onBookmarkClick: () {}),
+          ),
         ),
       );
 
