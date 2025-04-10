@@ -17,6 +17,13 @@ class ComponentTestScreen extends StatefulWidget {
 
 class _ComponentTestScreenState extends State<ComponentTestScreen> {
   int tabSelectedValue = 0;
+  final Recipe recipe = Recipe(
+    foodName: 'Traditional spare ribs baked',
+    chef: 'Chef John',
+    time: 20,
+    rate: 4.0,
+    image: 'assets/images/food.png',
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +58,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
               imageName: 'assets/images/tomato.png',
               amount: '500g',
             ),
-            RecipeCard(
-              recipe: Recipe(
-                foodName: 'Traditional spare ribs baked',
-                chef: 'Chef John',
-                time: 20,
-                rate: 4.0,
-                image: 'assets/images/food.png',
-              ),
-              onClick: () {},
-            ),
+            RecipeCard(recipe: recipe, onClick: () {}),
           ],
         ),
       ),
