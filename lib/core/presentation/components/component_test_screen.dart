@@ -58,7 +58,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
               imageName: 'assets/images/tomato.png',
               amount: '500g',
             ),
-            RecipeCard(recipe: recipe, onClick: () {}),
+            RecipeCard(recipe: recipe, onBookmarkClick: () {}),
           ],
         ),
       ),

@@ -5,9 +5,13 @@ import 'package:recipe_app/ui/text_styles.dart';
 
 class RecipeCard extends StatelessWidget {
   final Recipe recipe;
-  final VoidCallback onClick;
+  final VoidCallback onBookmarkClick;
 
-  const RecipeCard({super.key, required this.recipe, required this.onClick});
+  const RecipeCard({
+    super.key,
+    required this.recipe,
+    required this.onBookmarkClick,
+  });
 
   @override
   Widget build(BuildContext context) {
