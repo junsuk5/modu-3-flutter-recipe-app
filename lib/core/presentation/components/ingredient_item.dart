@@ -22,7 +22,7 @@ class IngredientItem extends StatelessWidget {
         color: ColorStyle.gray4,
         borderRadius: BorderRadius.circular(10),
       ),
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: const EdgeInsets.symmetric(horizontal: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
