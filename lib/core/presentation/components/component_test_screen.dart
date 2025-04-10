@@ -6,6 +6,7 @@ import 'package:recipe_app/core/presentation/components/input_field.dart';
 import 'package:recipe_app/core/presentation/components/medium_button.dart';
 import 'package:recipe_app/core/presentation/components/multi_tabs.dart';
 import 'package:recipe_app/core/presentation/components/rating_button.dart';
+import 'package:recipe_app/core/presentation/components/rating_dialog.dart';
 import 'package:recipe_app/core/presentation/components/recipe_card.dart';
 import 'package:recipe_app/core/presentation/components/small_button.dart';
 import 'package:recipe_app/data/model/recipe.dart';
@@ -83,6 +84,23 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                     text: 'Text',
                     isSelected: isFilterSelected,
                   ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    showDialog(
+                      builder: (BuildContext context) {
+                        return RatingDialog(
+                          title: 'Rate recipe',
+                          actionName: 'Send',
+                          onChange: (int value) {
+                            print(value);
+                          },
+                        );
+                      },
+                      context: context,
+                    );
+                  },
+                  child: Text('show alert'),
                 ),
               ],
             ),
