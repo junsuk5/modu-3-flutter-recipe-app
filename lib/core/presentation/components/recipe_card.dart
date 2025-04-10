@@ -52,12 +52,11 @@ class RecipeCard extends StatelessWidget {
             top: 10,
             right: 10,
             child: Container(
-              width: 37,
-              height: 16,
               decoration: BoxDecoration(
                 color: ColorStyle.secondary20,
                 borderRadius: BorderRadius.circular(20),
               ),
+              padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Row(
                 spacing: 3,
                 mainAxisAlignment: MainAxisAlignment.center,

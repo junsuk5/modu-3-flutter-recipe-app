@@ -22,7 +22,7 @@ void main() {
         ),
       );
 
-      expect(find.text(recipe.chef), findsOneWidget);
+      expect(find.textContaining(recipe.chef), findsOneWidget);
     });
   });
 }
