@@ -8,24 +8,29 @@ import 'package:recipe_app/presentation/splash/splash_screen.dart';
 import 'package:recipe_app/presentation/test/test_screen.dart';
 
 abstract class DefaultRoute {
+  static const String splash = '/splash';
+  static const String test = '/test';
+  static const String components = '/components';
+  static const String savedRecipes = '/savedRecipes';
+
   static Map<String, WidgetBuilder> routes = {
-    '/splash':
+    splash:
         (context) => SplashScreen(
           onStartCooking: () {
-            Navigator.of(context).pushReplacementNamed('/test');
+            Navigator.of(context).pushReplacementNamed(test);
           },
         ),
-    '/test':
+    test:
         (context) => TestScreen(
           onComponentButton: () {
-            Navigator.of(context).pushNamed('/components');
+            Navigator.of(context).pushNamed(components);
           },
           onSavedRecipeButton: () {
-            Navigator.of(context).pushNamed('/savedRecipes');
+            Navigator.of(context).pushNamed(savedRecipes);
           },
         ),
-    '/components': (context) => const ComponentTestScreen(),
-    '/savedRecipes':
+    components: (context) => const ComponentTestScreen(),
+    savedRecipes:
         (context) => SavedRecipeRoot(
           viewModel: SavedRecipesViewModel(
             RecipeRepositoryImpl(RecipeDataSourceImpl()),

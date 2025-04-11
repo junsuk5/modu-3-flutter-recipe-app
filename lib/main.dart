@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       routes: DefaultRoute.routes,
-      initialRoute: '/splash',
+      initialRoute: DefaultRoute.splash,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: ColorStyle.primary60),
       ),
