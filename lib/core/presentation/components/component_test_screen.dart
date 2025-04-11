@@ -37,6 +37,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Center(
