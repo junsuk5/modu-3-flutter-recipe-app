@@ -9,12 +9,12 @@ enum Category {
   dinner,
   @JsonValue('Chinese')
   chinese,
-  @JsonValue('Loacl Dish')
+  @JsonValue('Local Dish')
   localDish,
   @JsonValue('Fruit')
   fruit,
   @JsonValue('Break Fast')
-  breakFast,
+  breakfast,
   @JsonValue('Spanish')
   spanish,
   @JsonValue('Lunch')
