@@ -8,6 +8,7 @@ import 'package:recipe_app/data/repository/recipe_repository_impl.dart';
 import 'package:recipe_app/domain/repository/recipe_repository.dart';
 import 'package:recipe_app/presentation/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/utils/constant/http_url.dart';
+import 'package:recipe_app/utils/errors/recipe_error_enum.dart';
 
 import '../../../mock/mock_recipe_data_source_impl.dart';
 
@@ -343,6 +344,23 @@ void main() {
       expect(viewModel.recipes.length, 10);
       expect(viewModel.recipes.first.chef, 'Chef John');
       expect(viewModel.recipes.last.chef, 'Paul Hollywood');
+    });
+    test('에러 발생 시 적절히 처리되어야 한다.', () async {
+      // 에러를 발생시키는 모의 클라이언트 설정
+      mockClient = MockClient((request) async {
+        return http.Response('{"error": "server error"}', 500);
+      });
+
+      repository = RecipeRepositoryImpl(
+        MockRecipeDataSourceImpl(client: mockClient),
+      );
+      viewModel = SavedRecipesViewModel(repository);
+
+      // 뷰모델의 에러 처리 검증
+      await viewModel.findRecipes();
+
+      expect(viewModel.error, isNotNull);
+      expect(viewModel.error, RecipeErrorEnum.networkerror);
     });
   });
 }

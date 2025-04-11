@@ -8,9 +8,11 @@ class SavedRecipesViewModel with ChangeNotifier {
   final RecipeRepository _repository;
   List<Recipe> _recipes = List.unmodifiable([]);
   bool _isLoading = false;
+  RecipeErrorEnum? _error;
 
   List<Recipe> get recipes => _recipes;
   bool get isLoading => _isLoading;
+  RecipeErrorEnum? get error => _error;
 
   SavedRecipesViewModel(RecipeRepository repository) : _repository = repository;
 
@@ -24,11 +26,12 @@ class SavedRecipesViewModel with ChangeNotifier {
       case Success<List<Recipe>, RecipeErrorEnum>():
         _recipes = result.success;
         _isLoading = false;
+        _error = null;
         notifyListeners();
       case Error<List<Recipe>, RecipeErrorEnum>():
         _isLoading = false;
+        _error = result.error;
         notifyListeners();
-        throw result.error;
     }
   }
 }
