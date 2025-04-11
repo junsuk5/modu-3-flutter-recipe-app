@@ -33,9 +33,9 @@ class SplashWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SplashScreen(
       onStartCooking: () {
-        Navigator.of(
-          context,
-        ).push(MaterialPageRoute(builder: (context) => const NewWidget()));
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const NewWidget()),
+        );
       },
     );
   }
