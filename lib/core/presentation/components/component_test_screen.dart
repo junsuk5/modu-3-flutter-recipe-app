@@ -10,7 +10,8 @@ import 'package:recipe_app/core/presentation/components/rating_dialog.dart';
 import 'package:recipe_app/core/presentation/components/rating_dialog_drag.dart';
 import 'package:recipe_app/core/presentation/components/recipe_card.dart';
 import 'package:recipe_app/core/presentation/components/small_button.dart';
-import 'package:recipe_app/data/model/recipe.dart';
+import 'package:recipe_app/data/enums/category.dart';
+import 'package:recipe_app/domain/model/recipe.dart';
 
 class ComponentTestScreen extends StatefulWidget {
   const ComponentTestScreen({super.key});
@@ -23,12 +24,14 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
   int tabSelectedValue = 0;
   bool isRatingSelected = false;
   bool isFilterSelected = false;
-  final Recipe recipe = Recipe(
+  final Recipe recipe = const Recipe(
     foodName: 'Traditional spare ribs baked',
     chef: 'Chef John',
-    time: 20,
+    time: '20 min',
     rate: 4.0,
     image: 'assets/images/food.png',
+    ingredients: [],
+    category: Category.unknown,
   );
 
   @override

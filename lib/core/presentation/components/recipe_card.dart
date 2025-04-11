@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recipe_app/data/model/recipe.dart';
+import 'package:recipe_app/domain/model/recipe.dart';
 import 'package:recipe_app/ui/color_styles.dart';
 import 'package:recipe_app/ui/text_styles.dart';
 
@@ -25,7 +25,7 @@ class RecipeCard extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                  image: AssetImage(recipe.image),
+                  image: NetworkImage(recipe.image),
                   fit: BoxFit.cover,
                 ),
               ),
@@ -104,7 +104,7 @@ class RecipeCard extends StatelessWidget {
                     Icon(Icons.timer_outlined, color: ColorStyle.white),
                     const SizedBox(width: 5.0),
                     Text(
-                      '${recipe.time} min',
+                      recipe.time,
                       style: AppTextStyles.smallRegular.copyWith(
                         color: ColorStyle.white,
                       ),
