@@ -6,7 +6,6 @@ import 'package:recipe_app/core/presentation/components/input_field.dart';
 import 'package:recipe_app/core/presentation/components/medium_button.dart';
 import 'package:recipe_app/core/presentation/components/multi_tabs.dart';
 import 'package:recipe_app/core/presentation/components/rating_button.dart';
-import 'package:recipe_app/core/presentation/components/rating_dialog.dart';
 import 'package:recipe_app/core/presentation/components/rating_dialog_drag.dart';
 import 'package:recipe_app/core/presentation/components/recipe_card.dart';
 import 'package:recipe_app/core/presentation/components/small_button.dart';
@@ -17,7 +16,7 @@ class ComponentTestScreen extends StatefulWidget {
   const ComponentTestScreen({super.key});
 
   @override
-  _ComponentTestScreenState createState() => _ComponentTestScreenState();
+  State<ComponentTestScreen> createState() => _ComponentTestScreenState();
 }
 
 class _ComponentTestScreenState extends State<ComponentTestScreen> {
@@ -57,7 +56,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                   },
                 ),
                 MultiTabs(
-                  labels: ['Label1', 'Label2'],
+                  labels: const ['Label1', 'Label2'],
                   selectedIndex: tabSelectedValue,
                   onValueChange: (value) {
                     setState(() {
@@ -65,7 +64,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                     });
                   },
                 ),
-                IngredientItem(
+                const IngredientItem(
                   ingredientName: 'Tomaots',
                   imageName: 'assets/images/tomato.png',
                   amount: '500g',
@@ -105,7 +104,7 @@ class _ComponentTestScreenState extends State<ComponentTestScreen> {
                       context: context,
                     );
                   },
-                  child: Text('show alert'),
+                  child: const Text('show alert'),
                 ),
               ],
             ),
