@@ -1,1 +1,5 @@
-enum RecipeErrorEnum implements Exception { networkerror }
+enum RecipeErrorEnum implements Exception {
+  networkerror,
+  timeouterror,
+  notfounderror,
+}
