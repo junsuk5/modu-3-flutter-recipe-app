@@ -79,10 +79,9 @@ class SearchRecipesViewModel with ChangeNotifier {
         List<Recipe> recipes = [];
 
         recipes =
-            recipes =
-                result.success.where((e) {
-                  return e.rate.floor() == int.parse(filterState.rate);
-                }).toList();
+            result.success.where((e) {
+              return e.rate.floor() == int.parse(filterState.rate);
+            }).toList();
 
         if (filterState.category != 'All') {
           recipes =
