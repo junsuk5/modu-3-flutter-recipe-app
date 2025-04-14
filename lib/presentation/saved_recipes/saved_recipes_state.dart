@@ -9,6 +9,6 @@ abstract class SavedRecipesState with _$SavedRecipesState {
   const factory SavedRecipesState({
     @Default([]) List<Recipe> recipes,
     @Default(false) bool isLoading,
-    @Default(null) RecipeErrorEnum error,
+    @Default(null) RecipeErrorEnum? error,
   }) = _SavedRecipesState;
 }
