@@ -17,6 +17,13 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: body,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: ColorStyle.primary100,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+        child: const Icon(Icons.add, size: 24, color: ColorStyle.white),
+      ),
       bottomNavigationBar: NavigationBar(
         backgroundColor: ColorStyle.white,
         onDestinationSelected: onChangeIndex,
