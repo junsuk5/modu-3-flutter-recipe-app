@@ -48,7 +48,6 @@ abstract class DefaultRoute {
           viewModel: SearchRecipesViewModel(
             RecipeRepositoryImpl(RecipeDataSourceImpl()),
           ),
-          controller: TextEditingController(),
         ),
   };
 }
