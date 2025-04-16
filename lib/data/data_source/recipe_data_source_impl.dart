@@ -12,21 +12,7 @@ class RecipeDataSourceImpl implements RecipeDataSource<RecipeDto> {
 
   @override
   Future<RecipeDto> findData(int id) async {
-    final response = await http.get(
-      Uri.parse('${HttpUrl.baseUrl}$endpoint/$id'),
-      headers: {
-        HttpHeaders.contentTypeHeader: 'application/json; charset=utf-8',
-      },
-    );
-
-    if (response.statusCode == 200) {
-      final body = response.body;
-      final json = jsonDecode(body);
-
-      return RecipeDto.fromJson(json);
-    } else {
-      throw RecipeErrorEnum.networkerror;
-    }
+    return (await findDatas()).firstWhere((e) => e.id == id);
   }
 
   @override
