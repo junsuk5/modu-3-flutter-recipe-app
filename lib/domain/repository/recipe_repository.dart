@@ -5,5 +5,5 @@ import 'package:recipe_app/utils/result/result.dart';
 
 abstract interface class RecipeRepository
     implements BaseRepository<Recipe, RecipeErrorEnum> {
-  Future<Result<Recipe, RecipeErrorEnum>> findRcipeById(int id);
+  Future<Result<Recipe, RecipeErrorEnum>> findRecipeById(int id);
 }
