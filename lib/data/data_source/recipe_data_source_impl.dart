@@ -12,7 +12,12 @@ class RecipeDataSourceImpl implements RecipeDataSource<RecipeDto> {
 
   @override
   Future<RecipeDto> findData(int id) async {
-    return (await findDatas()).firstWhere((e) => e.id == id);
+    final recipes = await findDatas();
+    try {
+      return recipes.firstWhere((e) => e.id == id);
+    } catch (e) {
+      throw RecipeErrorEnum.notfounderror;
+    }
   }
 
   @override
