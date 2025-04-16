@@ -24,7 +24,7 @@ class RecipeRepositoryImpl implements RecipeRepository {
   }
 
   @override
-  Future<Result<Recipe, RecipeErrorEnum>> findRcipeById(int id) async {
+  Future<Result<Recipe, RecipeErrorEnum>> findRecipeById(int id) async {
     try {
       final RecipeDto dto = await _dataSource.findData(id);
 
