@@ -17,8 +17,8 @@ class IngredientViewModel extends ValueNotifier<IngredientState> {
 
   Future<void> findRecipeById(int id) async {
     value = value.copyWith(isLoading: true);
-    final result = await _repository.findRcipeById(id);
-    final procedureResult = await _procedureRepository.findProcedureBtRecipeId(
+    final result = await _repository.findRecipeById(id);
+    final procedureResult = await _procedureRepository.findProcedureByRecipeId(
       id,
     );
 
