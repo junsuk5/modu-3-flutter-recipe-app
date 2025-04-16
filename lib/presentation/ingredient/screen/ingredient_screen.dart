@@ -5,6 +5,8 @@ import 'package:recipe_app/core/presentation/components/multi_tabs.dart';
 import 'package:recipe_app/core/presentation/components/recipe_detail_card.dart';
 import 'package:recipe_app/core/presentation/components/small_button.dart';
 import 'package:recipe_app/core/presentation/components/step_item.dart';
+import 'package:recipe_app/domain/model/ingredients.dart';
+import 'package:recipe_app/domain/model/procedure.dart';
 import 'package:recipe_app/presentation/ingredient/ingredient_state.dart';
 import 'package:recipe_app/ui/color_styles.dart';
 import 'package:recipe_app/ui/text_styles.dart';
@@ -107,8 +109,10 @@ class IngredientScreen extends StatelessWidget {
                         ),
                         const SizedBox(height: 10),
                         currentIndex == 0
-                            ? _IngredientColumn(recipe: recipe)
-                            : _ProcedureColumn(recipe: recipe),
+                            ? _IngredientColumn(
+                              ingredients: recipe.recipe.ingredients,
+                            )
+                            : _ProcedureColumn(procedures: recipe.procedures),
                       ],
                     ),
                   ),
@@ -119,40 +123,44 @@ class IngredientScreen extends StatelessWidget {
 }
 
 class _ProcedureColumn extends StatelessWidget {
-  const _ProcedureColumn({required this.recipe});
+  const _ProcedureColumn({required this.procedures});
 
-  final IngredientState recipe;
+  final List<Procedure> procedures;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 10,
-      children:
-          recipe.procedures.map((e) {
-            return StepItem(procedure: e);
-          }).toList(),
-    );
+    return procedures.isEmpty
+        ? const Center(child: CircularProgressIndicator())
+        : Column(
+          spacing: 10,
+          children:
+              procedures.map((e) {
+                return StepItem(procedure: e);
+              }).toList(),
+        );
   }
 }
 
 class _IngredientColumn extends StatelessWidget {
-  const _IngredientColumn({required this.recipe});
+  const _IngredientColumn({required this.ingredients});
 
-  final IngredientState recipe;
+  final List<Ingredients> ingredients;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      spacing: 10,
-      children:
-          recipe.recipe.ingredients.map((e) {
-            return IngredientItem(
-              ingredientName: e.ingredient.name,
-              imageName: e.ingredient.image,
-              amount: '${e.amount}g',
-            );
-          }).toList(),
-    );
+    return ingredients.isEmpty
+        ? const Center(child: CircularProgressIndicator())
+        : Column(
+          spacing: 10,
+          children:
+              ingredients.map((e) {
+                return IngredientItem(
+                  ingredientName: e.ingredient.name,
+                  imageName: e.ingredient.image,
+                  amount: '${e.amount}g',
+                );
+              }).toList(),
+        );
   }
 }
 
