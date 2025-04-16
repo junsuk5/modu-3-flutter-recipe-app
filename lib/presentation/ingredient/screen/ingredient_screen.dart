@@ -130,7 +130,14 @@ class _ProcedureColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return procedures.isEmpty
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(
+          child: Text(
+            '등록된 요리 순서가 없습니다.',
+            style: AppTextStyles.mediumRegular.copyWith(
+              color: ColorStyle.gray3,
+            ),
+          ),
+        )
         : Column(
           spacing: 10,
           children:
@@ -149,7 +156,14 @@ class _IngredientColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ingredients.isEmpty
-        ? const Center(child: CircularProgressIndicator())
+        ? Center(
+          child: Text(
+            '등록된 재료가 없습니다.',
+            style: AppTextStyles.mediumRegular.copyWith(
+              color: ColorStyle.gray3,
+            ),
+          ),
+        )
         : Column(
           spacing: 10,
           children:
