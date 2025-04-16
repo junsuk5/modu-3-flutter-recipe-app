@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/presentation/components/ingredient_item.dart';
 import 'package:recipe_app/core/presentation/components/multi_tabs.dart';
 import 'package:recipe_app/core/presentation/components/recipe_detail_card.dart';
@@ -23,6 +24,15 @@ class IngredientScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: Padding(
+          padding: const EdgeInsets.only(left: 30),
+          child: GestureDetector(
+            onTap: () {
+              context.pop(context);
+            },
+            child: const Icon(Icons.arrow_back),
+          ),
+        ),
         actionsPadding: const EdgeInsets.symmetric(horizontal: 30),
         actions: const [Icon(Icons.menu)],
       ),
