@@ -13,7 +13,7 @@ class ProcedureRepositoryImpl implements ProcedureRepository {
     : _dataSource = dataSource;
 
   @override
-  Future<Result<List<Procedure>, ProcedureErrorEnum>> findProcedureBtRecipeId(
+  Future<Result<List<Procedure>, ProcedureErrorEnum>> findProcedureByRecipeId(
     int id,
   ) async {
     try {
