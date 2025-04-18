@@ -19,10 +19,13 @@ import 'package:recipe_app/presentation/search_recipes/search_recipes_view_model
 final getIt = GetIt.instance;
 
 void di() {
+  // datasource
   getIt.registerSingleton<RecipeDataSource<RecipeDto>>(RecipeDataSourceImpl());
   getIt.registerSingleton<ProcedureDataSource<ProcedureDto>>(
     ProcedureDataSourceImpl(),
   );
+
+  // repository - service logic
   getIt.registerSingleton<RecipeRepository>(RecipeRepositoryImpl(getIt()));
   getIt.registerSingleton<BookmarkRepository>(BookmarkRepositoryImpl());
   getIt.registerSingleton<GetSavedRecipesUseCase>(
@@ -32,6 +35,7 @@ void di() {
     ProcedureRepositoryImpl(getIt()),
   );
 
+  // viemodel
   getIt.registerFactory(() => SearchRecipesViewModel(getIt()));
   getIt.registerFactory(() => SavedRecipesViewModel(getIt()));
   getIt.registerFactory(() => IngredientViewModel(getIt(), getIt()));
