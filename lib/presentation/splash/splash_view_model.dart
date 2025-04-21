@@ -8,6 +8,12 @@ class SplashViewModel with ChangeNotifier {
 
   Stream<UiEvent> get eventStream => _eventController.stream;
 
+  @override
+  void dispose() {
+    _eventController.close();
+    super.dispose();
+  }
+
   Future<void> isNetworkConnect() async {
     _eventController.add(const UiEvent.networkError('네트워크 연결이 필요합니다.'));
   }
