@@ -24,7 +24,7 @@ class SavedRecipeRoot extends StatelessWidget {
         }
 
         return SavedRecipeScreen(
-          recipes: viewModel.state.recipes,
+          recipes: viewModel.state,
           onAction: (action) {
             switch (action) {
               case OnCardClick():

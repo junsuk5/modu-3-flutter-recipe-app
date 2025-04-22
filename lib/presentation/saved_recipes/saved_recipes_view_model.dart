@@ -16,12 +16,12 @@ class SavedRecipesViewModel with ChangeNotifier {
 
   Future<void> action(SavedRecipesAction action) async {
     switch (action) {
-      case OnCardClick():
-        break;
       case OnBookmarkClick():
         _removeBookmark(action.bookmarkId);
       case FindRecipes():
         _findRecipes();
+      case OnCardClick():
+        break;
     }
   }
 
