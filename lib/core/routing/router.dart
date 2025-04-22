@@ -5,6 +5,7 @@ import 'package:recipe_app/presentation/home/home_screen.dart';
 import 'package:recipe_app/presentation/ingredient/ingredient_view_model.dart';
 import 'package:recipe_app/presentation/ingredient/screen/ingreident_root.dart';
 import 'package:recipe_app/presentation/main/main_screen.dart';
+import 'package:recipe_app/presentation/saved_recipes/saved_recipes_action.dart';
 import 'package:recipe_app/presentation/saved_recipes/saved_recipes_view_model.dart';
 import 'package:recipe_app/presentation/saved_recipes/screen/saved_recipes_root.dart';
 import 'package:recipe_app/presentation/search_recipes/screen/search_recipes_root.dart';
@@ -116,7 +117,7 @@ final router = GoRouter(
               builder: (context, state) {
                 final SavedRecipesViewModel viewModel = getIt();
 
-                viewModel.findRecipes();
+                viewModel.action(const SavedRecipesAction.findRecipes());
 
                 return SavedRecipeRoot(
                   viewModel: viewModel,
