@@ -1,7 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:recipe_app/core/di/di_set.dart';
 import 'package:recipe_app/core/routing/routes.dart';
-import 'package:recipe_app/presentation/home/home_screen.dart';
+import 'package:recipe_app/presentation/home/home_action.dart';
+import 'package:recipe_app/presentation/home/home_view_model.dart';
+import 'package:recipe_app/presentation/home/screen/home_root.dart';
 import 'package:recipe_app/presentation/ingredient/ingredient_view_model.dart';
 import 'package:recipe_app/presentation/ingredient/screen/ingreident_root.dart';
 import 'package:recipe_app/presentation/main/main_screen.dart';
@@ -101,11 +103,11 @@ final router = GoRouter(
             GoRoute(
               path: Routes.home,
               builder: (context, state) {
-                return HomeScreen(
-                  onSearchTap: () {
-                    context.push(Routes.searchRecipes);
-                  },
-                );
+                final viewModel = getIt<HomeViewModel>();
+
+                viewModel.action(const HomeAction.findRecipes());
+
+                return HomeRoot(viewModel: viewModel);
               },
             ),
           ],
