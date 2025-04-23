@@ -17,10 +17,6 @@ class HomeViewModel with ChangeNotifier {
   HomeState get state => _state;
 
   Future<void> action(HomeAction action) async {
-    _state = state.copyWith(
-      bookmarkIds: await _bookmarkRepository.getBookmarkIds(),
-    );
-
     switch (action) {
       case OnCategoryClick():
         _findRecipesByCategory(action.category);
@@ -31,6 +27,10 @@ class HomeViewModel with ChangeNotifier {
       case OnSearchTap():
         break;
     }
+
+    _state = state.copyWith(
+      bookmarkIds: await _bookmarkRepository.getBookmarkIds(),
+    );
 
     notifyListeners();
   }
