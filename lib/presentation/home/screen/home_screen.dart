@@ -64,6 +64,7 @@ class HomeScreen extends StatelessWidget {
                     itemCount: state.recipes.length,
                     itemBuilder: (context, index) {
                       return DishCard(
+                        isBookmark: state.bookmarkIds.contains(index),
                         recipe: state.recipes[index],
                         onBookmarkClick: (int value) {
                           onAction(HomeAction.onBookmarkClick(value));
