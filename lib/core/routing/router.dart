@@ -123,8 +123,12 @@ final router = GoRouter(
 
                 return SavedRecipeRoot(
                   viewModel: viewModel,
-                  onCardClick: (int id) {
-                    context.push('${Routes.ingredientRecipes}/$id');
+                  onCardClick: (int id) async {
+                    final result = await context.push('${Routes.ingredientRecipes}/$id');
+
+                    if (result != null) {
+                      viewModel.action(const SavedRecipesAction.findRecipes());
+                    }
                   },
                 );
               },

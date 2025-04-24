@@ -18,6 +18,8 @@ import 'package:recipe_app/presentation/saved_recipes/saved_recipes_view_model.d
 import 'package:recipe_app/presentation/search_recipes/search_recipes_view_model.dart';
 import 'package:recipe_app/presentation/splash/splash_view_model.dart';
 
+import '../../domain/use_case/get_saved_recipes_stream_use_case.dart';
+
 final getIt = GetIt.instance;
 
 void di() {
@@ -33,14 +35,17 @@ void di() {
   getIt.registerSingleton<GetSavedRecipesUseCase>(
     GetSavedRecipesUseCase(getIt(), getIt()),
   );
+  getIt.registerSingleton<GetSavedRecipesStreamUseCase>(
+    GetSavedRecipesStreamUseCase(getIt(), getIt()),
+  );
   getIt.registerSingleton<ProcedureRepository>(
     ProcedureRepositoryImpl(getIt()),
   );
 
   // viemodel
   getIt.registerFactory(() => SearchRecipesViewModel(getIt()));
-  getIt.registerFactory(() => SavedRecipesViewModel(getIt()));
+  getIt.registerFactory(() => SavedRecipesViewModel(getIt(), getIt()));
   getIt.registerFactory(() => IngredientViewModel(getIt(), getIt()));
   getIt.registerFactory(() => SplashViewModel());
-  getIt.registerFactory(() => HomeViewModel(getIt(), getIt()));
+  getIt.registerFactory(() => HomeViewModel(getIt(), getIt(), getIt()));
 }
